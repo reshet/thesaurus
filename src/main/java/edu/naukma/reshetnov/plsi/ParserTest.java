@@ -9,8 +9,18 @@ import java.util.Arrays;
 import java.util.stream.Collectors;
 
 public class ParserTest {
+  public static String[] carniakPath = {
+    "/Users/reshet/Projects/carniak/bllip-parser/", "/Users/ihorreshetnov/mycode/bllip-parser/"
+  };
   public static void main(String[] args) {
-    CharniakParser parser = new CharniakParser("/Users/reshet/Projects/carniak/bllip-parser/", "./parse-50best.sh");
+
+    if (args.length == 0 || args.length > 1 || Integer.parseInt(args[0]) > 2) {
+      throw new IllegalArgumentException("Provide run mode: 1: home, 2: work");
+    }
+
+    final int mode = Integer.parseInt(args[0]);
+
+    CharniakParser parser = new CharniakParser(carniakPath[mode - 1], "./parse-50best.sh");
 
     Tree bestParse = parser.getBestParse(
         Arrays.asList("John gave presents to his colleagues".split(" ")).stream()
