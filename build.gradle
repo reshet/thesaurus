@@ -35,9 +35,9 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-hateoas')
     compile 'org.scala-lang:scala-library:2.11.7'
     compile('org.apache.mahout:mahout-math:0.11.2')
-    compile('com.hazelcast:hazelcast-all:3.5.3')
     //compile('edu.stanford.nlp:stanford-corenlp:3.6.0')
     compile files('../corenlp/CoreNLP/build/libs/CoreNLP-3.6.0.jar')
+    compile 'org.apache.spark:spark-mllib_2.11:2.0.1'
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
